@@ -18,20 +18,20 @@ export default function Navbar() {
           Hire!
         </button>
       </Link>
-      <Link href="https://twitter.com/NekoVerseNFT">
+      <Link href="https://twitter.com/coolmekacats">
         <img
           src="/images/twitter.png"
           className="m-6 px-4 py-2 transition-all hover:scale-110"
           width="60"
         ></img>
       </Link>
-      <Link href="https://discord.gg/nekoversenft">
+      {/* <Link href="https://discord.gg/">
         <img
           src="/images/discord.png"
           className="m-6 px-4 py-2 transition-all hover:scale-110"
           width="60"
         ></img>
-      </Link>
+      </Link> */}
     </nav>
   )
 }
