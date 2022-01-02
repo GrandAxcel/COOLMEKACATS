@@ -1,7 +1,7 @@
 //require("dotenv").config()
 // GET YOUR INFURA API ENDPOINT FROM https://infura.io/
 export const INFURA_ADDRESS =
-  "https://rinkeby.infura.io/v3/https://mainnet.infura.io/v3/adedd0e15d6d42db9cf10f008407f08c"
+  "https://rinkeby.infura.io/v3/adedd0e15d6d42db9cf10f008407f08c"
 
 export const ADDRESS = "0x52D479522561e46b569C46b98FCa09D8B5313E75"
 
