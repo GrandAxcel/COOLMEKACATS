@@ -46,8 +46,8 @@ const projectApi = async (req, res) => {
       description:
         "COOL MEKA CATS is a collective of 8,888 Meka Cats who have launched into battle beyond the blockchain and have now found their way into the metaverse. Aiming for the moon and shooting for the stars, each and every single Meka Cats is randomly generated from a combination of individually drawn traits, including traits inspired from our team’s favourite shows games, and characters. From watching Gundam to playing various pixel graphic games in our young days, COOL MEKA CATS is here to stay as we blast off on this everlasting adventure!",
       tokenId: parseInt(query),
-      // image: `https://gateway.pinata.cloud/ipfs/${trait["imageIPFS"]}`,
-      image: `https://gateway.pinata.cloud/ipfs/QmREUaaY1UbyatUuiCBxwaB4mxVhw2W5bUPZNgoZR2J52q`, //urevealed
+      image: `https://gateway.pinata.cloud/ipfs/${trait["imageIPFS"]}`,
+      // image: `https://gateway.pinata.cloud/ipfs/QmREUaaY1UbyatUuiCBxwaB4mxVhw2W5bUPZNgoZR2J52q`, //urevealed
       external_url: "https://www.coolmekacats.io/",
       attributes: [
         {
