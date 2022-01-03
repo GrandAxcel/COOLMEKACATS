@@ -115,33 +115,66 @@ export default function Home() {
   async function mint() {
     if (nftContract) {
       setError(null)
-
+      const unclaimedprice = price - 10000000000000000
       let gasAmount
-      try {
-        gasAmount = await nftContract.methods
-          .mint(how_many_NFTs)
-          .estimateGas({ from: walletAddress, value: price })
-      } catch (error) {
-        setError(
-          "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
-        )
-        throw error
-      }
-      console.log("estimated gas", gasAmount)
+      if (!claimed) {
+        try {
+          gasAmount = await nftContract.methods
+            .mint(how_many_NFTs)
+            .estimateGas({ from: walletAddress, value: unclaimedprice })
+        } catch (error) {
+          setError(
+            "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
+          )
+          throw error
+        }
+        console.log("estimated gas", gasAmount)
 
-      console.log({ from: walletAddress, value: price })
+        console.log({ from: walletAddress, value: unclaimedprice })
 
-      try {
-        nftContract.methods
-          .mint(how_many_NFTs)
-          .send({ from: walletAddress, value: price, gas: String(gasAmount) })
-          .on("transactionHash", function (hash) {
-            console.log("transactionHash", hash)
-          })
-      } catch (error) {
-        setError(
-          "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
-        )
+        try {
+          nftContract.methods
+            .mint(how_many_NFTs)
+            .send({
+              from: walletAddress,
+              value: unclaimedprice,
+              gas: String(gasAmount),
+            })
+            .on("transactionHash", function (hash) {
+              console.log("transactionHash", hash)
+            })
+        } catch (error) {
+          setError(
+            "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
+          )
+        }
+      } else {
+        try {
+          gasAmount = await nftContract.methods
+            .mint(how_many_NFTs)
+            .estimateGas({ from: walletAddress, value: price })
+        } catch (error) {
+          setError(
+            "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
+          )
+          throw error
+        }
+        console.log("estimated gas", gasAmount)
+
+        console.log({ from: walletAddress, value: price })
+
+        try {
+          nftContract.methods
+            .mint(how_many_NFTs)
+            .send({ from: walletAddress, value: price, gas: String(gasAmount) })
+            .on("transactionHash", function (hash) {
+              console.log("transactionHash", hash)
+            })
+        } catch (error) {
+          setError(
+            "There was an error while minting your Meka Cat. Please make sure you have enough ETH."
+          )
+        }
       }
     } else {
       console.log("Wallet not connected")
